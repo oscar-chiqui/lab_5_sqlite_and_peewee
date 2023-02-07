@@ -68,3 +68,15 @@ def main():
                 print('\nNot a valid choice.\n')
         except ValueError as e:
             print('\nPlease enter a numeric choice')
+
+def display_menu():
+    print('1: Add new record')
+    print('2: Search record')
+    print('3: Update Record')
+    print('4: Delete record')
+    print('5: Display records on the table')
+    print('6: Exit')
+
+def add():
+    
+    
