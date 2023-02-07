@@ -7,8 +7,11 @@ I build the same program using Peewee
 
 
 """
+#  pip install peewee before using the program 
 
 from peewee import *
+
+#  My database name : 
 
 db = SqliteDatabase('juggling_records.sqlite')
 
@@ -25,8 +28,10 @@ class Juggler(Model):
 
         return f'ID: {self.id} | {self.name} | {self.country} | {self.catches}'
 
+#  Connect to the database and create tables:
+
 db.connect()
-db.create_tables([Juggler])
+db.create_tables([Juggler]) 
 
 Juggler.delete().execute()
 
@@ -43,6 +48,8 @@ chad_taylor = Juggler(name = 'Chad Taylor', country = 'USA', catches = 78)
 chad_taylor.save()
 
 
+# In the program the user choice a numerical number ( for example 2 = search in the database or 6 = EXIT
+# if is not valid the user will get a message Value Error. )
 
 def main():
 
@@ -69,6 +76,8 @@ def main():
         except ValueError as e:
             print('\nPlease enter a numeric choice')
 
+# Options to choice based on the number to run the program .
+
 def display_menu():
     print('1: Add new record')
     print('2: Search record')
@@ -77,6 +86,8 @@ def display_menu():
     print('5: Display records on the table')
     print('6: Exit')
 
+#  let the user add a new row for a record holder.
+
 def add():
     add_name = input('Enter juggler name: ').title()
     add_country = input('Enter country:').upper()
@@ -84,6 +95,8 @@ def add():
 
     add_to_record = Juggler(name = add_name, country = add_country, catches = add_catches)
     add_to_record.save()
+
+#  let the user search for a record holder, by name
 
 def search():
     search_name = input('Enter full name to search: ').title()
@@ -96,6 +109,8 @@ def search():
     else:
         print(f'No record found under name: {search_name}')
 
+# be able to update the number of catches for a record holder.  
+
 def update():
     update_by_name = input('Enter juggler name to update record:').title()
     update_catches = int(input('Enter number of new catches:'))
@@ -107,6 +122,9 @@ def update():
     else:
         print(f'Record under name {update_by_name} has been updated to {update_catches}.')
 
+# be able to delete a record, by record holder's name
+# if a person's record was found to be invalid.
+
 def delete():
     delete_name = input('Enter juggler full name to delete from record:').title()
 
@@ -115,6 +133,8 @@ def delete():
         print(f'No record deleted under name: {delete_name}.')
     else:
         print(f'Record under name {delete_name} has been deleted.') 
+
+# display all the record holders in the database
 
 def display_all_jugglers():
     print('Records of all jugglers')
