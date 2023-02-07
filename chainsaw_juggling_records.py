@@ -107,5 +107,14 @@ def update():
     else:
         print(f'Record under name {update_by_name} has been updated to {update_catches}.')
 
+def delete():
+    delete_name = input('Enter juggler full name to delete from record:').title()
 
-    
+    rows_deleted = Juggler.delete().where(Juggler.name == delete_name).execute()
+    if rows_deleted == 0:
+        print(f'No record deleted under name: {delete_name}.')
+    else:
+        print(f'Record under name {delete_name} has been deleted.') 
+
+
+     
