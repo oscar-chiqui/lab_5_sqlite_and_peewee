@@ -85,5 +85,16 @@ def add():
     add_to_record = Juggler(name = add_name, country = add_country, catches = add_catches)
     add_to_record.save()
 
+def search():
+    search_name = input('Enter full name to search: ').title()
+    search_record = Juggler.select().where(Juggler.name == search_name).execute()
+
+    for record in search_record:
+        print(f'Record found - {record}.')
+        break
+        
+    else:
+        print(f'No record found under name: {search_name}')
+
 
     
