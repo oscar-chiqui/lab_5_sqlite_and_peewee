@@ -116,5 +116,12 @@ def delete():
     else:
         print(f'Record under name {delete_name} has been deleted.') 
 
+def display_all_jugglers():
+    print('Records of all jugglers')
+    all_jugglers = Juggler.select()
+    for juggler in all_jugglers:
+        print(juggler)
 
+
+main()
      
