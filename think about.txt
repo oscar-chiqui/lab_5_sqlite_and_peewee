@@ -1,0 +1,11 @@
+how are the two ways to interact with a database different?
+
+Peewee:
+
+open and close connections.
+Introspect tables , columns , indexes and constraints.
+execute queries.
+
+Which do you prefer? 
+I prefer peewee and SQL lite for now. 
+
