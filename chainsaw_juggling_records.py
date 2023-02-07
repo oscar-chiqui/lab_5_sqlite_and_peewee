@@ -78,5 +78,12 @@ def display_menu():
     print('6: Exit')
 
 def add():
-    
+    add_name = input('Enter juggler name: ').title()
+    add_country = input('Enter country:').upper()
+    add_catches = int(input('Enter number of catches'))
+
+    add_to_record = Juggler(name = add_name, country = add_country, catches = add_catches)
+    add_to_record.save()
+
+
     
