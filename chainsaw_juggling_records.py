@@ -96,5 +96,16 @@ def search():
     else:
         print(f'No record found under name: {search_name}')
 
+def update():
+    update_by_name = input('Enter juggler name to update record:').title()
+    update_catches = int(input('Enter number of new catches:'))
+
+    rows_updated = Juggler.update(catches = update_catches).where(Juggler.name == update_by_name)
+    if rows_updated == 0:
+        print(f'No record was found under name: {update_by_name}.')
+
+    else:
+        print(f'Record under name {update_by_name} has been updated to {update_catches}.')
+
 
     
